@@ -11,18 +11,25 @@ public class Romain {
 	public String getNom() {
 		return nom;
 	}
-	private void parler(String texte) {
-		System.out.println(prendreParole()+ "«"+ texte + "»");
+	public void parler(String texte) {
+		System.out.println(prendreParole()+ " "+ texte + " ");
 	}
-	private String prendreParole () {
-		return "Le romain" + nom + " : ";
+	public String prendreParole () {
+		return "Le romain " + nom + " : ";
 	}
 	public void recevoirCoup(int forceCoup) {
 		force -= forceCoup ; 
 		if (force >0) {
-			parler ("Aïe");
+			parler ("Aie");
 		} else {
 			parler ("J'abandonne...");
 		}	
+	}
+	public static void main (String[] args) {
+		Romain unRomain = new Romain ("unRomain", 3);
+		unRomain.prendreParole();
+		unRomain.parler("Salut");
+		unRomain.recevoirCoup(8);
+		
 	}
 }
