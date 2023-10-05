@@ -3,8 +3,9 @@ package personnages;
 public class Romain {
 	private String nom;
 	private int force;
-	Equipement[] equipement ; 
+	private Equipement[] equipement ; 
 	private int nbEquipement=0;
+	
 	public Romain(String nom, int force) {
 		this.nom = nom;
 		this.force = force;
@@ -21,6 +22,23 @@ public class Romain {
 	public String prendreParole () {
 		return "Le romain " + nom + " : ";
 	}
+	public void sEquiper1 (Equipement equipement) {
+		switch (equipement.length) {
+		case 2 : {
+			System.out.println("Le soldat Minus est bien protégé");;
+		}
+		case 1 : {
+			if (equipement[1] == "Casque"){
+					System.out.println("Le soldat Minus possede deja un casque");
+			}
+			else {
+				System.out.println("Le soldat Minus possede deja un bouclier");
+			}
+		}
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + equipement.length);
+		}
+	}
 	public void recevoirCoup(int forceCoup) {
 		assert force >= 0 ; 
 		int forceAv = force ;
@@ -34,17 +52,7 @@ public class Romain {
 		
 	
 	}
-	public void sEquiper (Equipement nomEquipement) {
-		// TODO : Faire le switch
-		switch (key) {
-		case value: {
-			
-			yield type;
-		}
-		default:
-			throw new IllegalArgumentException("Unexpected value: " + key);
-		}
-	}
+
 	public static void main (String[] args) {
 		Romain unRomain = new Romain ("unRomain", (6));
 		unRomain.prendreParole();
