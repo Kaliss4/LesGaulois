@@ -4,7 +4,7 @@ public class Romain {
 	private String nom;
 	private int force;
 	private Equipement[] equipement ; 
-	private int nbEquipement=0;
+	private int nbEquipement=1;
 	
 	public Romain(String nom, int force) {
 		this.nom = nom;
@@ -22,21 +22,26 @@ public class Romain {
 	public String prendreParole () {
 		return "Le romain " + nom + " : ";
 	}
-	public void sEquiper1 (Equipement equipement) {
-		switch (equipement.length) {
+	public int sEquiper1 (Equipement Test) {
+		switch (nbEquipement) {
 		case 2 : {
 			System.out.println("Le soldat Minus est bien protégé");;
 		}
 		case 1 : {
-			if (equipement[1] == "Casque"){
+			if ( equipement[0]== Equipement.CASQUE ){
 					System.out.println("Le soldat Minus possede deja un casque");
 			}
-			else {
+			else if (equipement[0]== Equipement.BOUCLIER) {
 				System.out.println("Le soldat Minus possede deja un bouclier");
+			}
+			else {
+				equipement[nbEquipement] = Test;
+				return nbEquipement++;
 			}
 		}
 		default:
-			throw new IllegalArgumentException("Unexpected value: " + equipement.length);
+			equipement[nbEquipement] = Test ;
+			return nbEquipement++;
 		}
 	}
 	public void recevoirCoup(int forceCoup) {
@@ -55,9 +60,7 @@ public class Romain {
 
 	public static void main (String[] args) {
 		Romain unRomain = new Romain ("unRomain", (6));
-		unRomain.prendreParole();
-		unRomain.parler("Salut");
-		unRomain.recevoirCoup(8);
+		
 		
 	}
 }
