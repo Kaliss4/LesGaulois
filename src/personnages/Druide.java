@@ -46,7 +46,7 @@ public class Druide {
 		return nom;
 	}
 	public String prendreParole() {
-		return "Le druide" + nom + " : ";
+		return "Le druide " + nom + " : ";
 	}
 	public static void main (String[] args) {
 		Druide panoramix = new Druide ("Panoramix", 5 , 10);
