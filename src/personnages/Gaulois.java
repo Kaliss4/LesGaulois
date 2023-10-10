@@ -45,6 +45,11 @@ public class Gaulois {
 	public String toString() {
 		return "Gaulois [getNom=" + getNom() + ", prendreParole()=" + prendreParole() + "]";
 	}
+	public void faireUneDonnation(Musee musee) {
+		if (Trophee trophee !=0) {
+			
+		}
+	}
 	
 	public static void main(String[] args) {
 		Gaulois asterix = new Gaulois ("Asterix",  8);

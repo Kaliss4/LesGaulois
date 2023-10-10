@@ -100,7 +100,12 @@ public class Romain {
 		}
 		parler(texte);
 		forceCoup -= resistanceEquipement;
+		if (forceCoup <0) {
+			return 0;
+		}
+		else {
 		return forceCoup;
+		}
 		}
 	
 		private Equipement[] ejecterEquipement() {
